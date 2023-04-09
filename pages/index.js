@@ -61,13 +61,15 @@ export default function Home() {
     
   }
 
-  const toggleComplete = (id,status) =>{
+  const toggleComplete = (id,status,title) =>{
     setTodos(todos.map(todo => todo.id === id ? 
       {... todo, isCompleted: !todo.isCompleted}: todo
       ))
       // Push to do to API
       const updatedTodo = {
-        isCompleted: status
+        isCompleted: status,
+        title:title,
+        id: id,
       }
   
       axios.put('http://localhost:5001/api/todo/update/'+id, updatedTodo)
@@ -124,7 +126,7 @@ export default function Home() {
   return (
     <>
       {showDuplicateMsg ? (
-        <p>This is a duplicate todo</p>
+        <p style={{color: "yellow"}}>Todo must be unique</p>
       ):(
         <></>
       )}

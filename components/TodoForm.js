@@ -25,7 +25,7 @@ export const TodoForm = ({addTodo}) => {
         <>
          <form onSubmit={handleSubmit} style={{padding: "20px"}}>
          {displayEmptyMsg ? (
-                <p>Please enter todo</p>
+                <p style={{color: "red"}}>Todo should not be empty</p>
             ):(
                 <></>
             )}

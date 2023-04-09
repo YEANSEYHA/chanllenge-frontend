@@ -16,9 +16,9 @@ export const Todo = ({task, toggleComplete, deleteTodo, editTodo,}) =>{
                 <div onClick={()=>deleteTodo(task.id)}>Delete</div>
                 
                 {task.isCompleted ? (
-                    <div onClick={() => toggleComplete(task.id, true)} style={{background: "red"}}>Mark Incompleted</div>
+                    <div onClick={() => toggleComplete(task.id, false,task.title)} style={{background: "red"}}>Mark Incompleted</div>
                 ): (
-                    <div onClick={() => toggleComplete(task.id, false)} style={{background: "green"}} >Mark Completed</div>
+                    <div onClick={() => toggleComplete(task.id, true,task.title)} style={{background: "green"}} >Mark Completed</div>
                 )}
             </div>
                 </>
